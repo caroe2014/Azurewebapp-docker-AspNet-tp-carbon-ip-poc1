@@ -33,8 +33,6 @@ namespace IpPocApi.Controllers
         [HttpPost("ping")]
         public async Task<IActionResult> Ping([FromBody] PingData data)
         {
-            //data.RemainingIterations = data.RequestedIterations;
-
             var json = JsonConvert.SerializeObject(data);
             _logger.LogInformation($"PING: {json}");
 
@@ -85,7 +83,6 @@ namespace IpPocApi.Controllers
             _logger.LogInformation($"Connection.RemoteIpAddress: {remoteIp}");
 
             _logger.LogInformation($"Bouncing Request Id: {data.Id}");
-            //_logger.LogInformation($"  => RemainingIterations {data.RemainingIterations} of {data.RequestedIterations}");
             _logger.LogInformation($"  => Target: {data.TargetUrl}");
 
             var protocol = _accessor.ActionContext.HttpContext.Request.IsHttps ? "https" : "http";
@@ -107,33 +104,6 @@ namespace IpPocApi.Controllers
 
             _logger.LogInformation($"{data.Id} Bounced!");
 
-            //var result = new IpPocResult()
-            //{
-            //    SenderIp = _accessor.ActionContext.HttpContext.Connection.RemoteIpAddress.ToString(),
-            //    SenderUrl = _accessor.ActionContext.HttpContext.Request.Headers["Referer"].ToString(),
-            //    ReceiverIp = _accessor.ActionContext.HttpContext.Connection.LocalIpAddress.ToString(),
-            //    ReceiverUrl = data.TargetUrl
-            //};
-
-            //if (dataCopy.RemainingIterations < 1)
-            //{
-            //    _logger.LogInformation($"The bouncing ends here.");
-            //}
-            //else
-            //{
-            //    var protocol = _accessor.ActionContext.HttpContext.Request.IsHttps ? "https" : "http";
-            //    var destPath = $"{protocol}://{_accessor.ActionContext.HttpContext.Request.Host}/target/bounce";
-            //    try
-            //    {
-            //        result = await _sender.ForwardPing(dataCopy, dataCopy.TargetUrl);
-            //        _logger.LogInformation($"Send Complete with status {response.StatusCode}");
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        _logger.LogError(e.Message, e);
-            //        return StatusCode(StatusCodes.Status500InternalServerError);
-            //    }
-            //}
             return Ok(result);
         }
     }

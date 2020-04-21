@@ -20,10 +20,6 @@ namespace IpPocApi.Models
         public string BounceLocalIp { get; set; }
         [JsonProperty("bounceRemoteIp")]
         public string BounceRemoteIp { get; set; }
-        //[JsonProperty("remainingIterations")]
-        //public int RemainingIterations { get; set; }
-        //[JsonProperty("requestedIterations")]
-        //public int RequestedIterations { get; set; }
         [JsonProperty("targetUrl")]
         public string TargetUrl { get; set; }
         [JsonProperty("pingUrl")]
