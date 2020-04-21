@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "5bd33222-f1a2-4a70-bdb0-eb9954571e99",
+		"name": "IpPocApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "IpPocApi",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"targetUrl\": \"https://tp-carbon-dev-ip-poc.azurefd.net/target/bounce\",\n\t\"pingerLocalIp\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://tp-carbon-dev-ip-poc.azurefd.net/target/ping",
+					"protocol": "https",
+					"host": [
+						"tp-carbon-dev-ip-poc",
+						"azurefd",
+						"net"
+					],
+					"path": [
+						"target",
+						"ping"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
